@@ -1,0 +1,27 @@
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const characters = document.querySelectorAll('.character');
+            const contents = document.querySelectorAll('.content');
+
+            characters.forEach(character => {
+                character.addEventListener('mouseover', () => {
+                    character.style.transform = 'scale(1.1)';
+                });
+
+                character.addEventListener('mouseout', () => {
+                    character.style.transform = 'scale(1)';
+                });
+
+                character.addEventListener('click', () => {
+                    const contentId = `content-${character.getAttribute('data-content')}`;
+                    contents.forEach(content => {
+                        if (content.id === contentId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
